@@ -1,16 +1,22 @@
 <div>
-<h1><%= @listing.album_name %></h1>
-<p><%= @listing.artist_name %></p>
-<p><%= @listing.tracklist %></p>
-<p><%= @listing.description %></p>
-<p><%= @listing.genre %></p>
-<p><%= @listing.youtube_url %></p>
-<p><%= @listing.price_per_day %>$</p>
-<p><%= @listing.active %></p>
-<%= cl_image_tag @listing.photo.key %>
-<p>User : <%= @listing.user.first_name %></p>
-<%= link_to "Edit my listing", edit_listing_path(@listing) %>
-<%= link_to "Back to all listings", listings_path %>
-<%= link_to "Delete this record", listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Do you REALLY want to delete?"} %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(@listing.photo.key) %>)">
+    <h1><%= @listing.album_name %></h1>
+  </div>
+
+  <p><%= @listing.artist_name %></p>
+  <p><%= @listing.tracklist %></p>
+  <p><%= @listing.description %></p>
+  <p><%= @listing.genre %></p>
+  <p><%= @listing.youtube_url %></p>
+  <p><%= @listing.price_per_day %>$</p>
+  <p><%= @listing.active %></p>
+  <% if @listing.photo.attached? %>
+    <%= cl_image_tag @listing.photo.key %>
+  <% end %>
+  <p>User : <%= @listing.user.first_name %></p>
+
+  <%= link_to "Edit my listing", edit_listing_path(@listing) %>
+  <%= link_to "Back to all listings", listings_path %>
+  <%= link_to "Delete this record", listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Do you REALLY want to delete?"} %>
 
 </div>
