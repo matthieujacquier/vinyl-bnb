@@ -1,13 +1,4 @@
 <div>
   <h1>Create a new listing</h1>
-  <%= simple_form_for (@listing) do |f| %>
-    <%= f.input :album_name %>
-    <%= f.input :artist_name %>
-    <%= f.input :tracklist %>
-    <%= f.input :description %>
-    <%= f.input :genre %>
-    <%= f.input :youtube_url %>
-    <%= f.input :price_per_day %>
-    <%= f.button :submit %>
-  <% end %>
+  <%= render "form" %>
 </div>

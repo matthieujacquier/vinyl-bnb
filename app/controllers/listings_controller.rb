@@ -5,7 +5,6 @@ class ListingsController < ApplicationController
   end
 
   def new
-   @currentUser = current_user.id
    @listing = Listing.new
   end
 
@@ -14,12 +13,34 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @listing.user = current_user
     if @listing.save
-    redirect_to listings_path
+      redirect_to listing_path(@listing)
     else
     render :new, status: :unprocessable_entity
     end
   end
 
+  def show
+    @listing = Listing.find(params[:id])
+  end
+
+  def edit
+    @listing = Listing.find(params[:id])
+  end
+
+   def update
+    @listing = Listing.find(params[:id])
+    if @listing.update(listing_params)
+      redirect_to listing_path(@listing)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    redirect_to listings_path, status: :see_other
+  end
 
   private
 

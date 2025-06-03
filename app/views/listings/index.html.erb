@@ -7,8 +7,12 @@
       <p><%= listing.artist_name %></p>
       <p><%= listing.genre %></p>
       <p><%= listing.price_per_day %></p>
+      <p><%= listing.active %></p>
+        <%= link_to "See vinyls details", listing_path(listing) %>
     </li>
     <% end %>
   </ul>
+
+  <%= link_to "Create a vinyl listing", new_listing_path %>
 
 </div>
