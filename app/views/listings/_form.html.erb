@@ -1,0 +1,15 @@
+  <%= simple_form_for (@listing) do |f| %>
+    <%= f.input :album_name %>
+    <%= f.input :artist_name %>
+    <%= f.input :tracklist %>
+    <%= f.input :description %>
+    <%= f.input :genre %>
+    <%= f.input :youtube_url %>
+    <%= f.input :price_per_day %>
+      <% unless @listing.new_record? %>
+      <%= f.input :active %>
+      <% end %>
+    <%= f.input :photo, as: :file %>
+
+    <%= f.button :submit %>
+  <% end %>
