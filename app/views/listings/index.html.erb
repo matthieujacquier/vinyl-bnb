@@ -1,0 +1,14 @@
+<div>
+  <h1>List of all vinyls</h1>
+  <ul>
+    <% @listings.each do |listing| %>
+    <li>
+      <p><%= listing.album_name %></p>
+      <p><%= listing.artist_name %></p>
+      <p><%= listing.genre %></p>
+      <p><%= listing.price_per_day %></p>
+    </li>
+    <% end %>
+  </ul>
+
+</div>
