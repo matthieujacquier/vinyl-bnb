@@ -9,6 +9,7 @@
       <% unless @listing.new_record? %>
       <%= f.input :active %>
       <% end %>
+    <%= f.input :photo, as: :file %>
 
     <%= f.button :submit %>
   <% end %>

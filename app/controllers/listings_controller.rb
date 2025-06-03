@@ -45,6 +45,6 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:album_name,:artist_name, :tracklist, :description, :genre, :youtube_url, :price_per_day)
+    params.require(:listing).permit(:album_name,:artist_name, :tracklist, :description, :genre, :youtube_url, :price_per_day, :photo)
   end
 end
