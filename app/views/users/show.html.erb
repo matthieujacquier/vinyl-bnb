@@ -8,9 +8,7 @@
 </ul>
 </div>
 
-<% if user_signed_in? %>
+<% if @user.bio.blank? %>
   <%= link_to "Add a bio", edit_about_me_path %>
 <% end %>
-<% if @user.bio.present? %>
   <%= link_to "Edit my bio", edit_about_me_path %>
-<% end %>
