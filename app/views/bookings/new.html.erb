@@ -1,8 +1,8 @@
 <h1>Bookings#new</h1>
 <p>Find me in app/views/bookings/new.html.erb</p>
 
-<% simple_form_for [@listing, @booking] do |f| %>
+<%= simple_form_for [@listing, @booking] do |f| %>
   <%= f.input :date_start%>
   <%= f.input :date_end %>
-  <%= f.button :submit, "Booking created" %>
+  <%= f.button :submit %>
 <% end %>
