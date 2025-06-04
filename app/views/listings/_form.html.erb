@@ -7,7 +7,7 @@
     <%= f.input :youtube_url %>
     <%= f.input :price_per_day %>
       <% unless @listing.new_record? %>
-      <%= f.input :active %>
+        <%= f.input :active %>
       <% end %>
     <%= f.input :photo, as: :file %>
 
