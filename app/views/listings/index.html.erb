@@ -2,22 +2,26 @@
   <h1>List of all vinyls</h1>
 
     <% @listings.each do |listing| %>
-    <div class="card-product">
-      <% if listing.photo.attached? %>
-      <%= cl_image_tag listing.photo.key %>
+      <% if listing.active? %>
+        <div class="card-product">
+          <% if listing.photo.attached? %>
+          <%= cl_image_tag listing.photo.key %>
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%= listing.album_name %></h2>
+            <p><%= listing.artist_name %></p>
+            <p><%= listing.genre %></p>
+            <p><%= listing.price_per_day %></p>
+            <%= link_to "See vinyls details", listing_path(listing) %>
+          </div>
+        </div>
       <% end %>
-      <div class="card-product-infos">
-        <h2><%= listing.album_name %></h2>
-        <p><%= listing.artist_name %></p>
-        <p><%= listing.genre %></p>
-        <p><%= listing.price_per_day %></p>
-        <p><%= listing.active %></p>
-        <%= link_to "See vinyls details", listing_path(listing) %>
-      </div>
-    </div>
     <% end %>
-  </ul>
-
+  
+<% if user_signed_in? %>
   <%= link_to "Create a vinyl listing", new_listing_path %>
+  <%= link_to "My listings", my_listings_path %>
+<% end %>
+
 
 </div>
