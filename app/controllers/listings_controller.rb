@@ -2,6 +2,15 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+    @markers = @listings.map do |listing|
+      user = listing.user
+      if user.latitude.present? && user.longitude.present?
+        {
+          lat: user.latitude,
+          lng: user.longitude
+        }
+      end
+    end
   end
 
   def new

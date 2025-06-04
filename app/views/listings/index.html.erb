@@ -17,7 +17,13 @@
         </div>
       <% end %>
     <% end %>
-  
+
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
 <% if user_signed_in? %>
   <%= link_to "Create a vinyl listing", new_listing_path %>
   <%= link_to "My listings", my_listings_path %>
