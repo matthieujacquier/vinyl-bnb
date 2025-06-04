@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "listings#index"
+  get "listings/my_listings", to: "listings#my_listings", as: :my_listings
   resources :listings
   resources :bookings, only: [:index, :show, :edit, :update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
