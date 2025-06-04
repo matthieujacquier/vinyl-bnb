@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root to: "listings#index"
   resources :listings
   resources :bookings, only: [:index, :show, :edit, :update]
+  get "about_me" => "users#show", as: "about_me"
+  get "about_me/edit" => "users#edit", as: "edit_about_me"
+  patch "about_me" => "users#update"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

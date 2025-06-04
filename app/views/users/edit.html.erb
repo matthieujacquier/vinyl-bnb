@@ -1,0 +1,12 @@
+<h1>Edit Bio</h1>
+
+<%= form_with(model: @user, url: about_me_path, method: :patch) do |f| %>
+  <div>
+    <%= f.label "Your bio" %><br>
+    <%= f.text_area :bio, rows: 6 %>
+  </div>
+
+  <div>
+    <%= f.submit "Update Bio" %>
+  </div>
+<% end %>

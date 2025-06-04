@@ -25,6 +25,7 @@ user1 = User.create(
   password: "password123",
   first_name: "Sam",
   last_name: "Techno",
+  city: "Cologne",
   bio: "Techno enthusiast and casual terasse smoker."
 )
 
@@ -33,6 +34,7 @@ user2 = User.create(
   password: "password123",
   first_name: "Marta",
   last_name: "Rock",
+  city: "Warshaw",
   bio: "Rock enthusiast and cat owner."
 )
 
@@ -41,6 +43,7 @@ user3 = User.create(
   password: "password123",
   first_name: "Pelin",
   last_name: "Jazz",
+  city: "Berlin",
   bio: "Jazz enthusiast and album collector."
 )
 
@@ -49,6 +52,7 @@ user4 = User.create(
   password: "password123",
   first_name: "Sneha",
   last_name: "Reggae",
+  city: "Amsterdam",
   bio: "Jazz enthusiast and album listener."
 )
 
@@ -57,7 +61,7 @@ user5 = User.create(
   password: "password123",
   first_name: "Matthieu",
   last_name: "Rap",
-  bio: "Rap enthusiast and album collector."
+  city: "Brussels"
 )
 
 puts "Created #{User.count} users"
