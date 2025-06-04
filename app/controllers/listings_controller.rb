@@ -8,7 +8,6 @@ class ListingsController < ApplicationController
    @listing = Listing.new
   end
 
-
   def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
@@ -17,6 +16,10 @@ class ListingsController < ApplicationController
     else
     render :new, status: :unprocessable_entity
     end
+  end
+
+  def my_listings
+    @listings = Listing.where(user_id: current_user.id)
   end
 
   def show

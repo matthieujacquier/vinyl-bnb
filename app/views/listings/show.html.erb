@@ -3,20 +3,23 @@
     <h1><%= @listing.album_name %></h1>
   </div>
 
-  <p><%= @listing.artist_name %></p>
-  <p><%= @listing.tracklist %></p>
-  <p><%= @listing.description %></p>
-  <p><%= @listing.genre %></p>
-  <p><%= @listing.youtube_url %></p>
+  <p>Artist: <%= @listing.artist_name %></p>
+  <p>Tracklist: <%= @listing.tracklist %></p>
+  <p>Description: <%= @listing.description %></p>
+  <p>Genre: <%= @listing.genre %></p>
+  <p><%= link_to "Preview on Youtube", @listing.youtube_url, target: "_blank" %></p>
   <p><%= @listing.price_per_day %>$</p>
-  <p><%= @listing.active %></p>
-  <% if @listing.photo.attached? %>
-    <%= cl_image_tag @listing.photo.key %>
+  <% if user_signed_in? && current_user.id == @listing.user_id %>
+    <p>Listing active: <%= @listing.active %></p>
   <% end %>
-  <p>User : <%= @listing.user.first_name %></p>
+  <% if @listing.photo.attached? %>
+    <%= cl_image_tag @listing.photo.key, height: 300, width: 300 %>
+  <% end %>
+  <p>User: <%= @listing.user.first_name %></p>
 
-  <%= link_to "Edit my listing", edit_listing_path(@listing) %>
   <%= link_to "Back to all listings", listings_path %>
-  <%= link_to "Delete this record", listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Do you REALLY want to delete?"} %>
-
+  <% if user_signed_in? && current_user.id == @listing.user_id %>
+    <%= link_to "Edit my listing", edit_listing_path(@listing) %>
+    <%= link_to "Delete this record", listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Do you REALLY want to delete?"} %>
+  <% end %>
 </div>
