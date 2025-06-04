@@ -10,11 +10,6 @@ class BookingsController < ApplicationController
   def edit
   end
 
-
-  def show
-    @booking = Booking.find(params[:id])
-  end
-
   def new
     @booking = Booking.new
   end
@@ -23,13 +18,16 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user #user_id
     @booking.listing = @listing #listing_id
-
     # Redirect to the booking page if saved, if not
     if @booking.save
       redirect_to booking_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
   end
 
   def update

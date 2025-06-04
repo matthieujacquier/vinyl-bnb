@@ -1,2 +1,20 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div>
+  <h1> My Bookings: </h1>
+
+  <% if @bookings.length > 0 %>
+    <% @bookings.each do |booking| %>
+      <div class="card-product">
+        <% if booking.listing.photo.attached? %>
+          <%= cl_image_tag booking.listing.photo.key %>
+        <%end%>
+      </div>
+
+      <div class="card-product-infos">
+        <h2><%= booking.listing.album_name %></h2>
+        <p><%= booking.date_start%></p>
+        <p><%= booking.date_end%></p>
+        <p><%= booking.status%>
+      </div>
+    <%end%>
+  <% end %>
+</div>
