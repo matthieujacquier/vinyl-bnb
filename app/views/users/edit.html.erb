@@ -1,0 +1,6 @@
+<h1>Edit Bio</h1>
+
+<%= simple_form_for @user, url: about_me_path, method: :patch do |f| %>
+  <%= f.input :bio, as: :text, label: "Your bio", input_html: { rows: 2 } %>
+  <%= f.button :submit, "Update Bio" %>
+<% end %>

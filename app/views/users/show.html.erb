@@ -1,0 +1,14 @@
+<div>
+<h1>This is your about me page</h1>
+<ul class="list-unstyled">
+  <li><%= @user.first_name %></li>
+  <li><%= @user.last_name %></li>
+  <li><%= @user.city %></li>
+  <li><%= @user.bio %></li>
+</ul>
+</div>
+
+<% if @user.bio.blank? %>
+  <%= link_to "Add a bio", edit_about_me_path %>
+<% end %>
+  <%= link_to "Edit my bio", edit_about_me_path %>

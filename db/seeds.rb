@@ -11,6 +11,7 @@
 require "open-uri"
 
 puts "cleaning the database"
+Booking.destroy_all
 Listing.destroy_all
 User.destroy_all
 
@@ -25,6 +26,7 @@ user1 = User.create(
   password: "password123",
   first_name: "Sam",
   last_name: "Techno",
+  city: "Cologne",
   bio: "Techno enthusiast and casual terasse smoker."
 )
 
@@ -33,6 +35,7 @@ user2 = User.create(
   password: "password123",
   first_name: "Marta",
   last_name: "Rock",
+  city: "Warshaw",
   bio: "Rock enthusiast and cat owner."
 )
 
@@ -41,6 +44,7 @@ user3 = User.create(
   password: "password123",
   first_name: "Pelin",
   last_name: "Jazz",
+  city: "Berlin",
   bio: "Jazz enthusiast and album collector."
 )
 
@@ -49,6 +53,7 @@ user4 = User.create(
   password: "password123",
   first_name: "Sneha",
   last_name: "Reggae",
+  city: "Amsterdam",
   bio: "Jazz enthusiast and album listener."
 )
 
@@ -57,7 +62,7 @@ user5 = User.create(
   password: "password123",
   first_name: "Matthieu",
   last_name: "Rap",
-  bio: "Rap enthusiast and album collector."
+  city: "Brussels"
 )
 
 puts "Created #{User.count} users"
@@ -247,3 +252,22 @@ listing10.photo.attach(
   filename: "straight_outta_compton.jpg",
   content_type: "image/jpeg"
 )
+
+
+puts "Creating the bookings"
+
+date_start = Date.today
+date_end = Date.today + 3
+total_days = (date_end - date_start).to_i
+total_price = listing1.price_per_day * total_days
+
+booking1 = Booking.create(
+  date_start: date_start,
+  date_end: date_end,
+  total_price: total_price,  #not sure where we'll create the total price logic
+  status: "pending",  #need to validate for only some values.
+  user: user4,     #listing_id.user can't be the same as booking.user_id
+  listing: listing1
+)
+
+puts "Created #{Booking.count} bookings"
