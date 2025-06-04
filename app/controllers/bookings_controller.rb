@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
 
   def index
     #only the users who are loged in
-    @booking = current_user.bookings
+    @bookings = Booking.where(user_id: current_user.id)
   end
 
   def edit
@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
 
 
   def show
-    @booking = Booking.find(params[:booking_id])
+    @booking = Booking.find(params[:id])
   end
 
   def new
@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
 
     # Redirect to the booking page if saved, if not
     if @booking.save
-      redirect_to @booking
+      redirect_to booking_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to @booking, notice: "Your booking is updated!"
+      redirect_to booking_path(@booking), notice: "Your booking is updated!"
     else
       render :edit, status: :unprocessable_entity
     end
