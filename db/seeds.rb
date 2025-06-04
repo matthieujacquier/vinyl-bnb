@@ -11,6 +11,7 @@
 require "open-uri"
 
 puts "cleaning the database"
+Booking.destroy_all
 Listing.destroy_all
 User.destroy_all
 
@@ -251,3 +252,22 @@ listing10.photo.attach(
   filename: "straight_outta_compton.jpg",
   content_type: "image/jpeg"
 )
+
+
+puts "Creating the bookings"
+
+date_start = Date.today
+date_end = Date.today + 3
+total_days = (date_end - date_start).to_i
+total_price = listing1.price_per_day * total_days
+
+booking1 = Booking.create(
+  date_start: date_start,
+  date_end: date_end,
+  total_price: total_price,  #not sure where we'll create the total price logic
+  status: "pending",  #need to validate for only some values.
+  user: user4,     #listing_id.user can't be the same as booking.user_id
+  listing: listing1
+)
+
+puts "Created #{Booking.count} bookings"
