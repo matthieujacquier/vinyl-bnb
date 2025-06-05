@@ -12,14 +12,15 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.user = current_user #user_id
-    @booking.listing = @listing #listing_id
-    # Redirect to the booking page if saved, if not
+    @booking = @listing.bookings.new(booking_params)
+    @booking.user = current_user # user_id
+
     if @booking.save
-      redirect_to booking_path(@booking)
+      flash[:notice] = "Booking for #{@listing.album_name} was successfully created!"
+      redirect_to bookings_path
     else
-      render :new, status: :unprocessable_entity
+      flash.now[:alert] = "Could not create booking: #{@booking.errors.full_messages.to_sentence}"
+      render 'listings/show', status: :unprocessable_entity
     end
   end
 
@@ -55,8 +56,6 @@ class BookingsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-
-
 
   private
 
