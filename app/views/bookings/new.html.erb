@@ -1,7 +1,0 @@
-<h1>Create your new booking</h1>
-
-<%= simple_form_for [@listing, @booking] do |f| %>
-  <%= f.input :date_start, as: :string, input_html: { data: { controller: "datepicker", datepicker_target: "input" } } %>
-  <%= f.input :date_end, as: :string, input_html: { data: { controller: "datepicker", datepicker_target: "input" } } %>
-  <%= f.button :submit %>
-<% end %>

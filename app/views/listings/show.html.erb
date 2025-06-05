@@ -36,9 +36,9 @@
   You have requested to book it!
   <% end %>
   <%= simple_form_for [@listing, @booking], url: listing_bookings_path(@listing) do |f| %>
-        <%= f.input :date_start, as: :date %>
-        <%= f.input :date_end, as: :date %>
-        <%= f.button :submit, "Submit Request" %>
+  <%= f.input :date_start, as: :string, input_html: { data: { controller: "datepicker", datepicker_target: "input" } } %>
+  <%= f.input :date_end, as: :string, input_html: { data: { controller: "datepicker", datepicker_target: "input" } } %>
+  <%= f.button :submit, "Submit Request" %>
       <% end %>
 
 
