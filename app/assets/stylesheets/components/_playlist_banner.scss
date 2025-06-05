@@ -1,0 +1,67 @@
+.playlist-banner {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  border-radius: 12px;
+  background: linear-gradient(to right, #e1e0d2, #f7f7f0); /* similar fade */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.playlist-cover img {
+  width: 220px;
+  height: 220px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.playlist-details {
+  margin-left: 40px;
+  max-width: 70%;
+}
+
+.playlist-type {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.playlist-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.playlist-title .artist {
+  font-weight: 800;
+}
+
+.playlist-subtitle {
+  color: #444;
+  font-size: 16px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.playlist-meta {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.playlist-meta .avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 6px;
+}
+
+.playlist-meta .dot {
+  margin: 0 4px;
+}
