@@ -7,9 +7,6 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user_id: current_user.id)
   end
 
-  def edit
-  end
-
   def new
     @booking = Booking.new
   end
@@ -27,8 +24,29 @@ class BookingsController < ApplicationController
     end
   end
 
+  def my_booking_requests
+    @user = current_user
+    @bookings = Booking.where(user_id: current_user)
+    @listings = Listing.where(user_id: current_user)
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update(accepted: true)
+    redirect_to my_booking_requests_path, notice: "Booking accepted."
+  end
+
+  def refuse
+    @booking = Booking.find(params[:id])
+    @booking.update(accepted: false)
+    redirect_to my_booking_requests_path, notice: "Booking accepted."
+  end
+
   def show
     @booking = Booking.find(params[:id])
+  end
+
+  def edit
   end
 
   def update
@@ -38,6 +56,7 @@ class BookingsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
+
 
 
   private

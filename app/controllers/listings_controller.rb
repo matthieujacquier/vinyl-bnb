@@ -3,9 +3,8 @@ class ListingsController < ApplicationController
   def index
     @listings = Listing.all
    if params[:query].present?
-    sql_subquery = "album_name ILIKE :query OR artist_name ILIKE :query"
+    sql_subquery = "album_name ILIKE :query OR artist_name ILIKE :query OR genre ILIKE :query"
     @listings = @listings.where(sql_subquery, query: "%#{params[:query]}%")
-
   end
 
     @markers = @listings.map do |listing|
@@ -13,7 +12,9 @@ class ListingsController < ApplicationController
       if user.latitude.present? && user.longitude.present?
         {
           lat: user.latitude,
-          lng: user.longitude
+          lng: user.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: { listing: listing }),
+          marker_html: render_to_string(partial: "marker", locals: { listing: listing })
         }
       end
     end
