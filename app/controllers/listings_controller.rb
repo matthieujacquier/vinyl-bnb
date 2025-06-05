@@ -2,6 +2,10 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+    if params[:query].present?
+    @listings = @listings.where(album_name: params[:query])
+  end
+
     @markers = @listings.map do |listing|
       user = listing.user
       if user.latitude.present? && user.longitude.present?
