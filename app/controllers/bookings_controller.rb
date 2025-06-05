@@ -15,6 +15,11 @@ class BookingsController < ApplicationController
     @booking = @listing.bookings.new(booking_params)
     @booking.user = current_user # user_id
 
+    if @booking.date_start && @booking.date_end
+      days = (@booking.date_end - @booking.date_start).to_i + 1
+      @booking.total_price = days * @listing.price_per_day
+    end
+
     if @booking.save
       flash[:notice] = "Booking for #{@listing.album_name} was successfully created!"
       redirect_to bookings_path
