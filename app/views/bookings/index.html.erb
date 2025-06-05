@@ -1,27 +1,27 @@
 <div>
   <h1> My Bookings: </h1>
+</div>
 
   <% if @bookings.length > 0 %>
-<div class="card-product">
+  <div class="card-container">
     <% @bookings.each do |booking| %>
-      <div class="card card-product">
+      <div class="card-product">
         <% if booking.listing.photo.attached? %>
           <%= cl_image_tag booking.listing.photo.key %>
         <%end%>
-      </div>
 
       <div class="card-product-infos">
-        <h2><%= booking.listing.album_name %></h2>
-        <p><%= booking.date_start%></p>
-        <p><%= booking.date_end%></p>
+        <h2> <%= booking.listing.album_name %></h2>
+        <p> <strong>Start Date: </strong><%= booking.date_start.strftime("%b %d, %Y") %></p>
+        <p><strong>End Date: </strong><%= booking.date_end.strftime("%b %d, %Y") %></p>
         <% if booking.accepted == true %>
           <% booking.status = "accepted" %>
         <% elsif booking.accepted == false %>
           <% booking.status = "refused" %>
         <% end %>
-        <p><%= booking.status%></p>
+        <p><strong>Status: </strong><%= booking.status%></p>
+      </div>
       </div>
     <%end%>
     </div>
   <% end %>
-</div>

@@ -6,4 +6,15 @@
   padding: 40px 20px;
   min-height: 55px;
   background-position: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+@media
+(max-width: 599px) {
+  .card-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
 }
