@@ -1,7 +1,21 @@
-<div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(@listing.photo.key) %>)">
-    <h1><%= @listing.album_name %></h1>
+<div class="playlist-banner">
+  <div class="playlist-cover">
+    <img src="<%= cl_image_path(@listing.photo.key) %>" alt="Album Cover">
   </div>
+  <div class="playlist-details">
+    <h1 class="playlist-title">
+      <span class="artist"><%= @listing.artist_name %></span> – <%= @listing.album_name %>
+    </h1>
+    <div class="playlist-meta">
+      <span class="artist-name"><%= @listing.user.first_name %></span>
+      <span class="dot">•</span>
+      <span class="meta-info"><%= @listing.description %></span>
+      <span class="dot">•</span>
+      <span class="meta-info"><%= @listing.price_per_day %></span>
+    </div>
+  </div>
+</div>
+
 
   <p>Artist: <%= @listing.artist_name %></p>
   <p>Tracklist: <%= @listing.tracklist %></p>
