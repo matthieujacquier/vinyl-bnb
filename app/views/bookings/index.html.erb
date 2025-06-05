@@ -2,8 +2,9 @@
   <h1> My Bookings: </h1>
 
   <% if @bookings.length > 0 %>
+<div class="card-container">
     <% @bookings.each do |booking| %>
-      <div class="card-product">
+      <div class="card card-product">
         <% if booking.listing.photo.attached? %>
           <%= cl_image_tag booking.listing.photo.key %>
         <%end%>
@@ -16,5 +17,6 @@
         <p><%= booking.status%>
       </div>
     <%end%>
+    </div>
   <% end %>
 </div>
