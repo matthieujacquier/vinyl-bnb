@@ -16,39 +16,32 @@
   </div>
 </div>
 
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-6 mt-5">
+        <p>Artist: <%= @listing.artist_name %></p>
+        <p>Tracklist: <%= @listing.tracklist %></p>
+        <p>Description: <%= @listing.description %></p>
+        <p>Genre: <%= @listing.genre %></p>
+        <p><%= link_to "Preview on Youtube", @listing.youtube_url, target: "_blank" %></p>
+        <p><%= @listing.price_per_day %>0€</p>
+        <% if user_signed_in? && current_user.id == @listing.user_id %>
+          <p>Listing active: <%= @listing.active %></p>
+        <% end %>
+        <p>User: <%= @listing.user.first_name %></p>
 
-  <p>Artist: <%= @listing.artist_name %></p>
-  <p>Tracklist: <%= @listing.tracklist %></p>
-  <p>Description: <%= @listing.description %></p>
-  <p>Genre: <%= @listing.genre %></p>
-  <p><%= link_to "Preview on Youtube", @listing.youtube_url, target: "_blank" %></p>
-  <p><%= @listing.price_per_day %>$</p>
-  <% if user_signed_in? && current_user.id == @listing.user_id %>
-    <p>Listing active: <%= @listing.active %></p>
-  <% end %>
-  <% if @listing.photo.attached? %>
-    <%= cl_image_tag @listing.photo.key, height: 300, width: 300 %>
-  <% end %>
-  <p>User: <%= @listing.user.first_name %></p>
+        <%= render "bookings/form" %>
 
-  <h2>Request to book</h2>
-  <% if @listing.bookings.exists?(user: current_user) %>
-  You have requested to book it!
-  <% end %>
-  <%= simple_form_for [@listing, @booking], url: listing_bookings_path(@listing) do |f| %>
-  <%= f.input :date_start, as: :string, input_html: { data: { controller: "datepicker", datepicker_target: "input" } } %>
-  <%= f.input :date_end, as: :string, input_html: { data: { controller: "datepicker", datepicker_target: "input" } } %>
-  <%= f.button :submit, "Submit Request" %>
+        <%= link_to "Back to all listings", listings_path %>
+        <% if user_signed_in? && current_user.id == @listing.user_id %>
+          <%= link_to "Edit my listing", edit_listing_path(@listing) %>
+          <%= link_to "Delete this record", listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Do you REALLY want to delete?"} %>
+        <% end %>
+
+        <% if user_signed_in? %>
+        <%= link_to "Book this vinyl", new_listing_booking_path(@listing) %>
       <% end %>
-
-
-  <%= link_to "Back to all listings", listings_path %>
-  <% if user_signed_in? && current_user.id == @listing.user_id %>
-    <%= link_to "Edit my listing", edit_listing_path(@listing) %>
-    <%= link_to "Delete this record", listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Do you REALLY want to delete?"} %>
-  <% end %>
-
-  <% if user_signed_in? %>
-  <%= link_to "Book this vinyl", new_listing_booking_path(@listing) %>
-<% end %>
+      </div>
+    </div>
+  </div>
 </div>
