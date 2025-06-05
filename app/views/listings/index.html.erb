@@ -13,7 +13,7 @@
 
 <div>
   <h1>List of all vinyls</h1>
-
+  <div class="card-container">
     <% @listings.each do |listing| %>
       <% if listing.active? %>
         <div class="card-product">
@@ -30,6 +30,7 @@
         </div>
       <% end %>
     <% end %>
+  </div>
 
   <div style="width: 40%; height: 600px;"
   data-controller="map"
@@ -41,6 +42,5 @@
   <%= link_to "Create a vinyl listing", new_listing_path %>
   <%= link_to "My listings", my_listings_path %>
 <% end %>
-
 
 </div>
