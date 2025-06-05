@@ -2,10 +2,17 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "listings#index"
   get "listings/my_listings", to: "listings#my_listings", as: :my_listings
+  get "bookings/my_booking_requests", to: "bookings#my_booking_requests", as: :my_booking_requests
   resources :listings do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:index,   :show, :edit, :update]
+  resources :bookings, only: [:index, :show, :edit, :update] do
+    member do
+      patch :accept
+      patch :refuse
+    end
+  end
+
   get "about_me" => "users#show", as: "about_me"
   get "about_me/edit" => "users#edit", as: "edit_about_me"
   patch "about_me" => "users#update"
