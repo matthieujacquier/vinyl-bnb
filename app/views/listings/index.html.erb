@@ -1,12 +1,12 @@
 <div class="row justify-content-center">
   <div class="col-sm-8 my-3">
-    <%= form_with url: listings_path, method: :get, class: "d-flex" do %>
+    <%= form_with url: listings_path, method: :get, class: "search-form d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control",
             placeholder: "Search by album, artist or genre"
         %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary search-button" %>
     <% end %>
   </div>
 </div>
