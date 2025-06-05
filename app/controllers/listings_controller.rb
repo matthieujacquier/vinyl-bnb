@@ -47,7 +47,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 
-   def update
+  def update
     @listing = Listing.find(params[:id])
     if @listing.update(listing_params)
       redirect_to listing_path(@listing)

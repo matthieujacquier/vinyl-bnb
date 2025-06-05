@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:notice] = "Booking for #{@listing.album_name} was successfully created!"
-      redirect_to @listing
+      redirect_to bookings_path
     else
       flash.now[:alert] = "Could not create booking: #{@booking.errors.full_messages.to_sentence}"
       render 'listings/show', status: :unprocessable_entity
@@ -56,8 +56,6 @@ class BookingsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-
-
 
   private
 
