@@ -22,4 +22,8 @@
     <%= link_to "Edit my listing", edit_listing_path(@listing) %>
     <%= link_to "Delete this record", listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Do you REALLY want to delete?"} %>
   <% end %>
+
+  <% if user_signed_in? %>
+  <%= link_to "Book this vinyl", new_listing_booking_path(@listing) %>
+<% end %>
 </div>

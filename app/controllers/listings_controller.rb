@@ -2,6 +2,21 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+   if params[:query].present?
+    sql_subquery = "album_name ILIKE :query OR artist_name ILIKE :query"
+    @listings = @listings.where(sql_subquery, query: "%#{params[:query]}%")
+
+  end
+
+    @markers = @listings.map do |listing|
+      user = listing.user
+      if user.latitude.present? && user.longitude.present?
+        {
+          lat: user.latitude,
+          lng: user.longitude
+        }
+      end
+    end
   end
 
   def new
