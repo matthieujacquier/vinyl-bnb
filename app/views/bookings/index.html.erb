@@ -14,7 +14,12 @@
         <h2><%= booking.listing.album_name %></h2>
         <p><%= booking.date_start%></p>
         <p><%= booking.date_end%></p>
-        <p><%= booking.status%>
+        <% if booking.accepted == true %>
+          <% booking.status = "accepted" %>
+        <% elsif booking.accepted == false %>
+          <% booking.status = "refused" %>
+        <% end %>
+        <p><%= booking.status%></p>
       </div>
     <%end%>
     </div>
