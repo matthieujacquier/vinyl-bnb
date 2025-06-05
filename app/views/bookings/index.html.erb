@@ -2,7 +2,7 @@
   <h1> My Bookings: </h1>
 
   <% if @bookings.length > 0 %>
-<div class="card-container">
+<div class="card-product">
     <% @bookings.each do |booking| %>
       <div class="card card-product">
         <% if booking.listing.photo.attached? %>
