@@ -1,0 +1,33 @@
+<h1>My Booking Requests</h1>
+
+
+<% @listings.each do |listing| %>
+  <% listing.bookings.each do |booking| %>
+    <% if booking.accepted.nil? %>
+      <h2>Your pending bookings</h2>
+      <h3><%= booking.user.first_name %> requested to book <%= booking.listing.album_name %></h3>
+      <h3>They requested to book it from <%= booking.date_start %> to <%= booking.date_end %></h3>
+      <h3>Your payout would be: <%= booking.total_price %>€</h3>
+
+      <% if booking.accepted.nil? %>
+        <h3>Would you like to accept or refuse the booking?</h3>
+        <%= link_to "Accept the Booking", accept_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
+        <%= link_to "Refuse the Booking", refuse_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
+      <% end %>
+
+      <h3>Booking Status: <%= booking.accepted ? "Accepted" : "Refused" %></h3>
+
+    <% elsif booking.accepted == true %>
+      <h2>Your accepted bookings</h2>
+      <h3><%= booking.user.first_name %> requested to book <%= booking.listing.album_name %></h3>
+      <h3>They requested to book it from <%= booking.date_start %> to <%= booking.date_end %></h3>
+      <h3>Your payout: <%= booking.total_price %>€</h3>
+      <h3>Booking Status: <%= booking.accepted ? "Accepted" : "Refused" %></h3>
+    <% elsif booking.accepted == false %>
+      <h2>Your refused bookings</h2>
+      <h3><%= booking.user.first_name %> requested to book <%= booking.listing.album_name %></h3>
+      <h3>They requested to book it from <%= booking.date_start %> to <%= booking.date_end %></h3>
+      <h3>Booking Status: <%= booking.accepted ? "Accepted" : "Refused" %></h3>
+    <% end %>
+  <% end %>
+<% end %>
