@@ -40,13 +40,14 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @booking = Booking.new
   end
 
   def edit
     @listing = Listing.find(params[:id])
   end
 
-   def update
+  def update
     @listing = Listing.find(params[:id])
     if @listing.update(listing_params)
       redirect_to listing_path(@listing)
