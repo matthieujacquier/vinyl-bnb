@@ -3,9 +3,14 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @listings = @user.listings
   end
 
-   def edit
+  def my_listings
+    @listings = current_user.listings
+  end
+
+  def edit
     @user = current_user
   end
 
@@ -23,5 +28,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:bio)
   end
-
 end
