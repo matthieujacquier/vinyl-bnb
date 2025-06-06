@@ -35,7 +35,7 @@ user2 = User.create(
   password: "password123",
   first_name: "Marta",
   last_name: "Rock",
-  city: "Warshaw",
+  city: "Wroclaw",
   bio: "Rock enthusiast and cat owner."
 )
 
