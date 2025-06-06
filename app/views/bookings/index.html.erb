@@ -15,9 +15,9 @@
         <p> <strong>Start Date: </strong><%= booking.date_start.strftime("%b %d, %Y") %></p>
         <p><strong>End Date: </strong><%= booking.date_end.strftime("%b %d, %Y") %></p>
         <% if booking.accepted == true %>
-          <% booking.status = "accepted" %>
+          <% booking.update(status: "accepted")%>
         <% elsif booking.accepted == false %>
-          <% booking.status = "refused" %>
+          <% booking.update(status: "refused")%>
         <% end %>
         <p><strong>Status: </strong><%= booking.status%></p>
       </div>
