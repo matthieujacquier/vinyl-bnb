@@ -13,7 +13,7 @@
       <% if @user.bio.blank? %>
         <%= link_to "Add a bio", edit_about_me_path, class: "btn btn-primary" %>
       <% else %>
-        <%= link_to "Edit my bio", edit_about_me_path, class: "btn btn-secondary" %>
+        <%= link_to "Edit my bio", edit_about_me_path, class: "btn btn-primary button" %>
       <% end %>
     </div>
   </div>
