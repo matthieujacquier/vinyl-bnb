@@ -1,30 +1,30 @@
-<div>
-  <h1>My listings</h1>
-  <div class="card-container">
-    <% @listings.each do |listing| %>
-    <div class="card-product">
-      <% if listing.photo.attached? %>
-      <%= cl_image_tag listing.photo.key %>
-      <% end %>
-      <div class="card-product-infos">
-        <h2><%= listing.album_name %></h2>
-        <p>Artist: <%= listing.artist_name %></p>
-        <p>Genre: <%= listing.genre %></p>
-        <p>Price/day <%= listing.price_per_day %>0€</p>
-        <% if listing.active == true %>
-          <p>Listing is activated</p>
-        <% else %>
-          <p>Listing is deactivated</p>
+<div class="container-fluid full-height">
+  <div class="row d-flex justify-content-center">
+    <div class="col-8 justify-content-start">
+      <h1>My listings</h1>
+      <div class="card-container">
+        <% @listings.each do |listing| %>
+        <div class="card-product">
+          <% if listing.photo.attached? %>
+          <%= cl_image_tag listing.photo.key %>
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%= listing.album_name %></h2>
+            <p>Artist: <%= listing.artist_name %></p>
+            <p>Genre: <%= listing.genre %></p>
+            <p>Price/day <%= listing.price_per_day %>0€</p>
+            <% if listing.active == true %>
+              <p>Listing is activated</p>
+            <% else %>
+              <p>Listing is deactivated</p>
+            <% end %>
+            <%= link_to "See vinyls details", listing_path(listing), class: "card-button" %>
+          </div>
+        </div>
         <% end %>
-        <%= link_to "See vinyl details", listing_path(listing), class: "card-button" %>
-      </div>
-    </div>
-    <% end %>
-    </div>
-  </ul>
-<% if user_signed_in? %>
-  <%= link_to "Create a vinyl listing", new_listing_path, class: "button-new-listing" %>
-<% end %>
-<%= link_to "Back to all listings", listings_path, class: "button-new-listing" %>
+        </div>
+      </ul>
 
+    </div>
+  </div>
 </div>

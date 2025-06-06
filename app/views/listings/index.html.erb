@@ -18,22 +18,19 @@
         <% @listings.each do |listing| %>
           <% if listing.active? %>
             <div class="card-product">
-              <%= link_to listing_path(listing), class: "card-product-link" do %>
-                <% if listing.photo.attached? %>
-                  <%= cl_image_tag listing.photo.key %>
-                <% end %>
-                <div class="card-product-infos">
-                  <h2><%= listing.album_name %></h2>
-                  <p><i class="fa-solid fa-podcast"></i> <%= listing.artist_name %></p>
-                  <p><i class="fa-solid fa-tag"></i> <%= listing.genre %></p>
-                  <p><%= listing.price_per_day %> € / per day</p>
-                  <% end %>
-                  <div class="card-product-infos text-center">
-                 <%= link_to "See vinyl details", listing_path(listing), class: "card-button" %>
-                </div>
-                </div>
-
+            <%= link_to listing_path(listing), class: "card-product-link" do %>
+              <% if listing.photo.attached? %>
+              <%= cl_image_tag listing.photo.key %>
+              <% end %>
+              <div class="card-product-infos">
+                <h2><%= listing.album_name %></h2>
+                <p><i class="fa-solid fa-podcast"></i>  <%= listing.artist_name %></p>
+                <p><i class="fa-solid fa-tag"></i> <%= listing.genre %></p>
+                <p><%= listing.price_per_day %> € / per day</p>
+                <%= link_to "See vinyls details", listing_path(listing), class:"button"%>
+              </div>
             </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
