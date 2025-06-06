@@ -10,3 +10,11 @@
 .navbar-lewagon .navbar-brand img {
   width: 150px;
 }
+
+.hamburger {
+  height: 40px; width: 40px; background-color: $dark-gray; border-radius: 50%;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  background-color: $green;
+}
