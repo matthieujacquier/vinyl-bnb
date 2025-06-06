@@ -6,12 +6,10 @@
     <h1 class="playlist-title">
       <span class="artist"><%= @listing.artist_name %></span> – <%= @listing.album_name %>
     </h1>
-    <div class="playlist-meta">
-      <span class="artist-name"><%= @listing.user.first_name %></span>
-      <span class="dot">•</span>
-      <span class="meta-info"><%= @listing.description %></span>
-      <span class="dot">•</span>
-      <span class="meta-info"><%= @listing.price_per_day %></span>
+    <div class="playlist-meta d-flex flex-column align-items-start mt-2">
+      <span class="meta-info">Rented by: <%= @listing.user.first_name %></span>
+      <span class="meta-info">Description: <%= @listing.description %></span>
+      <span class="meta-info">Price per day: <%= @listing.price_per_day %></span>
     </div>
   </div>
 </div>
@@ -22,11 +20,18 @@
         <p>Artist:
         <%= link_to @listing.artist_name, listings_path(query: @listing.artist_name) %> </p>
         <p>Tracklist: <%= @listing.tracklist %></p>
+        <h3>Artist: <%= @listing.artist_name %></h3>
+        <strong>Tracklist</strong>
+        <ul class= "tracklist">
+          <% @listing.tracklist.split("\n").each do |track| %>
+            <li><%= track %></li>
+          <% end %>
+        </ul>
         <p>Description: <%= @listing.description %></p>
         <p>Genre:
         <%= link_to @listing.genre, listings_path(query: @listing.genre) %> </p>
         <p><%= link_to "Preview on Youtube", @listing.youtube_url, target: "_blank" %></p>
-        <p><%= @listing.price_per_day %>€</p>
+        <p>Price per day: <%= @listing.price_per_day %>€</p>
         <% if user_signed_in? && current_user.id == @listing.user_id %>
           <p>Listing active: <%= @listing.active %></p>
         <% end %>

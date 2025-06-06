@@ -69,10 +69,11 @@ puts "Created #{User.count} users"
 
 puts "Creating the listings"
 
+
 listing1 = Listing.create(
   album_name: "Dark Side of the Moon",
   artist_name: "Pink Floyd",
-  tracklist: "1. Speak to Me\n2. Breathe\n3. On the Run\n4. Time",
+  tracklist: "1. Speak to Me\n2. Breathe (In the Air)\n3. On the Run\n4. Time\n5. The Great Gig in the Sky\n6. Money\n7. Us and Them\n8. Any Colour You Like\n9. Brain Damage\n10. Eclipse",
   description: "Iconic progressive rock album released in 1973.",
   genre: "Progressive Rock",
   youtube_url: "https://www.youtube.com/watch?v=2o4ygOv0wKk&list=PL3PhWT10BW3Urh8ZXXpuU9h526ChwgWKy&ab_channel=PinkFloyd-Topic",
@@ -84,7 +85,7 @@ listing1 = Listing.create(
 listing2 = Listing.create(
   album_name: "Thriller",
   artist_name: "Michael Jackson",
-  tracklist: "1. Wanna Be Startin' Somethin'\n2. Thriller\n3. Beat It\n4. Billie Jean",
+  tracklist: "1. Wanna Be Startin' Somethin'\n2. Baby Be Mine\n3. The Girl Is Mine\n4. Thriller\n5. Beat It\n6. Billie Jean\n7. Human Nature\n8. P.Y.T. (Pretty Young Thing)\n9. The Lady in My Life",
   description: "Best-selling album of all time, blending pop, rock, and funk.",
   genre: "Pop",
   youtube_url: "https://www.youtube.com/watch?v=sOnqjkJTMaA&ab_channel=michaeljacksonVEVO",
@@ -96,7 +97,7 @@ listing2 = Listing.create(
 listing3 = Listing.create(
   album_name: "Abbey Road",
   artist_name: "The Beatles",
-  tracklist: "1. Come Together\n2. Something\n3. Here Comes the Sun\n4. Octopus's Garden",
+  tracklist: "1. Come Together\n2. Something\n3. Maxwell's Silver Hammer\n4. Oh! Darling\n5. Octopus's Garden\n6. I Want You (She's So Heavy)\n7. Here Comes the Sun\n8. Because\n9. You Never Give Me Your Money\n10. Sun King\n11. Mean Mr. Mustard\n12. Polythene Pam\n13. She Came In Through the Bathroom Window\n14. Golden Slumbers\n15. Carry That Weight\n16. The End\n17. Her Majesty",
   description: "The Beatles’ eleventh studio album featuring iconic melodies.",
   genre: "Rock",
   youtube_url: "https://www.youtube.com/watch?v=oolpPmuK2I8&list=PLycVTiaj8OI-kwvNjgvvopMJt__x-y5mD&ab_channel=TheBeatles-Topic",
@@ -108,7 +109,7 @@ listing3 = Listing.create(
 listing4 = Listing.create(
   album_name: "Back to Black",
   artist_name: "Amy Winehouse",
-  tracklist: "1. Rehab\n2. You Know I'm No Good\n3. Back to Black\n4. Love Is a Losing Game",
+  tracklist: "1. Rehab\n2. You Know I'm No Good\n3. Me & Mr Jones\n4. Just Friends\n5. Back to Black\n6. Love Is a Losing Game\n7. Tears Dry on Their Own\n8. Wake Up Alone\n9. Some Unholy War\n10. He Can Only Hold Her\n11. Addicted",
   description: "Critically acclaimed soul album with vintage vibes and raw emotion.",
   genre: "Soul",
   youtube_url: "https://www.youtube.com/watch?v=TJAfLE39ZZ8&ab_channel=AmyWinehouseVEVO",
@@ -120,7 +121,7 @@ listing4 = Listing.create(
 listing5 = Listing.create(
   album_name: "Random Access Memories",
   artist_name: "Daft Punk",
-  tracklist: "1. Give Life Back to Music\n2. Get Lucky\n3. Lose Yourself to Dance\n4. Contact",
+  tracklist: "1. Give Life Back to Music\n2. The Game of Love\n3. Giorgio by Moroder\n4. Within\n5. Instant Crush\n6. Lose Yourself to Dance\n7. Touch\n8. Get Lucky\n9. Beyond\n10. Motherboard\n11. Fragments of Time\n12. Doin' It Right\n13. Contact",
   description: "Grammy-winning electronic album with disco and funk influence.",
   genre: "Electronic",
   youtube_url: "https://www.youtube.com/watch?v=wIMSU8otS-g&ab_channel=OscarCanto",
@@ -132,7 +133,7 @@ listing5 = Listing.create(
 listing6 = Listing.create(
   album_name: "To Pimp a Butterfly",
   artist_name: "Kendrick Lamar",
-  tracklist: "1. Wesley's Theory\n2. King Kunta\n3. Alright\n4. The Blacker the Berry",
+  tracklist: "1. Wesley's Theory\n2. For Free? (Interlude)\n3. King Kunta\n4. Institutionalized\n5. These Walls\n6. u\n7. Alright\n8. For Sale? (Interlude)\n9. Momma\n10. Hood Politics\n11. How Much a Dollar Cost\n12. Complexion (A Zulu Love)\n13. The Blacker the Berry\n14. You Ain't Gotta Lie (Momma Said)\n15. i\n16. Mortal Man",
   description: "Influential hip-hop album known for its jazz fusion and political depth.",
   genre: "Hip-Hop",
   youtube_url: "https://www.youtube.com/watch?v=l9fN-8NjrvI&list=PL8YH4mOwWryUO4kxV36tPqkiaAr4_oJe5",
@@ -144,7 +145,7 @@ listing6 = Listing.create(
 listing7 = Listing.create(
   album_name: "Rumours",
   artist_name: "Fleetwood Mac",
-  tracklist: "1. Dreams\n2. Go Your Own Way\n3. The Chain\n4. Don't Stop",
+  tracklist: "1. Second Hand News\n2. Dreams\n3. Never Going Back Again\n4. Don't Stop\n5. Go Your Own Way\n6. Songbird\n7. The Chain\n8. You Make Loving Fun\n9. I Don't Want to Know\n10. Oh Daddy\n11. Gold Dust Woman",
   description: "Timeless rock album filled with emotion and harmony.",
   genre: "Classic Rock",
   youtube_url: "https://www.youtube.com/watch?v=-uFU79MGj00&pp=ygUVcnVtb3VycyBmbGVldHdvb2QgbWFj",
@@ -156,7 +157,7 @@ listing7 = Listing.create(
 listing8 = Listing.create(
   album_name: "1989",
   artist_name: "Taylor Swift",
-  tracklist: "1. Blank Space\n2. Style\n3. Shake It Off\n4. Out of the Woods",
+  tracklist: "1. Welcome to New York\n2. Blank Space\n3. Style\n4. Out of the Woods\n5. All You Had to Do Was Stay\n6. Shake It Off\n7. I Wish You Would\n8. Bad Blood\n9. Wildest Dreams\n10. How You Get the Girl\n11. This Love\n12. I Know Places\n13. Clean",
   description: "Grammy-winning pop album that marked a stylistic reinvention.",
   genre: "Pop",
   youtube_url: "https://www.youtube.com/watch?v=0BYUf8QDCZU&list=PLxA687tYuMWiHaLuwtNz6edZMBBgrXTL_&ab_channel=TaylorSwift-Topic",
@@ -168,7 +169,7 @@ listing8 = Listing.create(
 listing9 = Listing.create(
   album_name: "OK Computer",
   artist_name: "Radiohead",
-  tracklist: "1. Airbag\n2. Paranoid Android\n3. Karma Police\n4. No Surprises",
+  tracklist: "1. Airbag\n2. Paranoid Android\n3. Subterranean Homesick Alien\n4. Exit Music (For a Film)\n5. Let Down\n6. Karma Police\n7. Fitter Happier\n8. Electioneering\n9. Climbing Up the Walls\n10. No Surprises\n11. Lucky\n12. The Tourist",
   description: "Seminal alt-rock album with dystopian themes and experimental sound.",
   genre: "Alternative Rock",
   youtube_url: "https://www.youtube.com/watch?v=jNY_wLukVW0&list=PLxzSZG7g8c8x6GYz_FcNr-3zPQ7npP6WF&ab_channel=Radiohead-Topic",
@@ -180,7 +181,7 @@ listing9 = Listing.create(
 listing10 = Listing.create(
   album_name: "Straight Outta Compton",
   artist_name: "N.W.A",
-  tracklist: "1. Straight Outta Compton\n2. **** tha Police\n3. Gangsta Gangsta\n4. Express Yourself",
+  tracklist: "1. Straight Outta Compton\n2. **** tha Police\n3. Gangsta Gangsta\n4. If It Ain't Ruff\n5. Parental Discretion Iz Advised\n6. 8 Ball (Remix)\n7. Something Like That\n8. Express Yourself\n9. Compton's N the House (Remix)\n10. I Ain't tha 1\n11. Dopeman (Remix)\n12. Quiet on tha Set",
   description: "Groundbreaking West Coast hip-hop album that shaped the genre with its raw social commentary.",
   genre: "Hip-Hop",
   youtube_url: "https://www.youtube.com/watch?v=TMZi25Pq3T8&pp=ygUabndhIHN0cmFpZ2h0IG91dHRhIGNvbXB0b27SBwkJsQkBhyohjO8%3D",
