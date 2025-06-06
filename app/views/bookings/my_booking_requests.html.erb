@@ -13,8 +13,6 @@
         <%= link_to "Accept the Booking", accept_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
         <%= link_to "Refuse the Booking", refuse_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
 
-      <h3>Booking Status: <%= booking.accepted ? "Accepted" : "Refused" %></h3>
-
     <% elsif booking.accepted == true %>
       <h2>Your accepted bookings</h2>
       <h3><%= booking.user.first_name %> requested to book <%= booking.listing.album_name %></h3>
