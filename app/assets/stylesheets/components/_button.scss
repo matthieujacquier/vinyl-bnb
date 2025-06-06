@@ -24,3 +24,42 @@
     background-color: rgb(64,221,120);
   }
 }
+
+.card-button {
+  display: inline-block;
+  color: $gray;
+  background-color: $green;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  margin-left: 1rem;
+  border-radius: $border-radius-xxl;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: rgb(64,221,120);
+  }
+}
+
+.button-new-listing{
+  display: inline-block;
+  justify-content: center;
+  color: $gray;
+  background-color: $green;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  margin-left: 1rem;
+  border-radius: $border-radius-xxl;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: rgb(64,221,120);
+  }
+}

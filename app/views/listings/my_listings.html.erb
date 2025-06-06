@@ -16,15 +16,15 @@
         <% else %>
           <p>Listing is deactivated</p>
         <% end %>
-        <%= link_to "See vinyls details", listing_path(listing) %>
+        <%= link_to "See vinyl details", listing_path(listing), class: "card-button" %>
       </div>
     </div>
     <% end %>
     </div>
   </ul>
 <% if user_signed_in? %>
-  <%= link_to "Create a vinyl listing", new_listing_path %>
+  <%= link_to "Create a vinyl listing", new_listing_path, class: "button-new-listing" %>
 <% end %>
-<%= link_to "Back to all listings", listings_path %>
+<%= link_to "Back to all listings", listings_path, class: "button-new-listing" %>
 
 </div>
