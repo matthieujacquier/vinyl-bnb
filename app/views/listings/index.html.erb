@@ -26,8 +26,8 @@
                 <h2><%= listing.album_name %></h2>
                 <p><%= listing.artist_name %></p>
                 <p><%= listing.genre %></p>
-                <p><%= listing.price_per_day %></p>
-                <%= link_to "See vinyls details", listing_path(listing) %>
+                <p class="mb-3"><%= listing.price_per_day %></p>
+                <%= link_to "See vinyls details", listing_path(listing), class: "button" %>
               </div>
             </div>
           <% end %>
