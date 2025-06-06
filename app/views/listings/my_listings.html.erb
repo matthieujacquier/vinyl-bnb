@@ -1,6 +1,6 @@
 <div>
   <h1>My listings</h1>
-
+  <div class="card-container">
     <% @listings.each do |listing| %>
     <div class="card-product">
       <% if listing.photo.attached? %>
@@ -20,6 +20,7 @@
       </div>
     </div>
     <% end %>
+    </div>
   </ul>
 <% if user_signed_in? %>
   <%= link_to "Create a vinyl listing", new_listing_path %>
