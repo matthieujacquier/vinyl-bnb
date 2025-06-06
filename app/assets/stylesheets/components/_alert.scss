@@ -2,5 +2,5 @@
   position: fixed;
   bottom: 16px;
   right: 16px;
-  z-index: 1000;
+  z-index: 1080; // FYI setting to 1070+ z-index is the way to go for alert/pop-ups
 }
