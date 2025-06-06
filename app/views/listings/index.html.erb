@@ -19,6 +19,7 @@
         <% @listings.each do |listing| %>
           <% if listing.active? %>
             <div class="card-product">
+            <%= link_to listing_path(listing), class: "card-product-link" do %>
               <% if listing.photo.attached? %>
               <%= cl_image_tag listing.photo.key %>
               <% end %>
@@ -29,6 +30,7 @@
                 <p><%= listing.price_per_day %></p>
                 <%= link_to "See vinyls details", listing_path(listing) %>
               </div>
+            <% end %>
             </div>
           <% end %>
         <% end %>

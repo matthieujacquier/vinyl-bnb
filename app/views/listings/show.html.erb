@@ -19,16 +19,19 @@
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-sm-10 col-lg-7 mt-5">
-        <p>Artist: <%= @listing.artist_name %></p>
+        <p>Artist:
+        <%= link_to @listing.artist_name, listings_path(query: @listing.artist_name) %> </p>
         <p>Tracklist: <%= @listing.tracklist %></p>
         <p>Description: <%= @listing.description %></p>
-        <p>Genre: <%= @listing.genre %></p>
+        <p>Genre:
+        <%= link_to @listing.genre, listings_path(query: @listing.genre) %> </p>
         <p><%= link_to "Preview on Youtube", @listing.youtube_url, target: "_blank" %></p>
         <p><%= @listing.price_per_day %>€</p>
         <% if user_signed_in? && current_user.id == @listing.user_id %>
           <p>Listing active: <%= @listing.active %></p>
         <% end %>
-        <p>User: <%= @listing.user.first_name %></p>
+        <p>User:
+        <%= link_to @listing.user.first_name, listings_path(query: @listing.user.first_name) %> </p>
 
         <%= link_to "Back to all listings", listings_path %>
         <% if user_signed_in? && current_user.id == @listing.user_id %>
