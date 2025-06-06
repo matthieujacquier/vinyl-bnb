@@ -22,10 +22,10 @@
         datepicker_target: "input"
       }
     } %>
-
-  <div>
-    Total price: <span data-booking-target="totalPrice">€</span>
-  </div>
-
+  <div class="total-price-badge">Total price:
+  <span data-booking-target="totalPrice">0€</span>
+</div>
+<div class="submit-button-wrapper">
   <%= f.button :submit, "Submit Request", class: "btn btn-outline-light" %>
+</div>
 <% end %>
