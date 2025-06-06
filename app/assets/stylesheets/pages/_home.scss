@@ -1,1 +1,8 @@
 // Specific CSS for your home-page
+.full-height {
+  min-height: calc(100vh - 150px);
+}
+
+.align-center {
+  align-content: center;
+}

@@ -1,28 +1,30 @@
-<h1>My Booking Requests</h1>
-
-
-<% @listings.each do |listing| %>
-  <% listing.bookings.each do |booking| %>
-    <% if booking.accepted.nil? %>
-      <h2>Your pending bookings</h2>
-      <h3><%= booking.user.first_name %> requested to book <%= booking.listing.album_name %></h3>
-      <h3>They requested to book it from <%= booking.date_start %> to <%= booking.date_end %></h3>
-      <h3>Your payout would be: <%= booking.total_price %>€</h3>
-        <h3>Would you like to accept or refuse the booking?</h3>
-        <%= link_to "Accept the Booking", accept_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
-        <%= link_to "Refuse the Booking", refuse_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
-
-    <% elsif booking.accepted == true %>
-      <h2>Your accepted bookings</h2>
-      <h3><%= booking.user.first_name %> requested to book <%= booking.listing.album_name %></h3>
-      <h3>They requested to book it from <%= booking.date_start %> to <%= booking.date_end %></h3>
-      <h3>Your payout: <%= booking.total_price %>€</h3>
-      <h3>Booking Status: <%= booking.accepted ? "Accepted" : "Refused" %></h3>
-    <% elsif booking.accepted == false %>
-      <h2>Your refused bookings</h2>
-      <h3><%= booking.user.first_name %> requested to book <%= booking.listing.album_name %></h3>
-      <h3>They requested to book it from <%= booking.date_start %> to <%= booking.date_end %></h3>
-      <h3>Booking Status: <%= booking.accepted ? "Accepted" : "Refused" %></h3>
-    <% end %>
-  <% end %>
-<% end %>
+<div class="container-fluid full-height">
+  <div class="row d-flex justify-content-center">
+    <div class="col-8 justify-content-start">
+      <h1>My Booking Requests</h1>
+      <div class="card-container">
+      <% @listings.each do |listing| %>
+        <% listing.bookings.each do |booking| %>
+            <div class="card-product">
+              <% if booking.listing.photo.attached? %>
+              <%= cl_image_tag booking.listing.photo.key %>
+              <% end %>
+              <div class="card-product-infos">
+              <% if booking.accepted.nil? %>
+                <p><%= booking.user.first_name %> requested to book <%= booking.listing.album_name %> from <%= booking.date_start %> to <%= booking.date_end %></p>
+                <p class="mb-3">Your payout would be: <%= booking.total_price %>€</p>
+                  <%= link_to "Accept the Booking", accept_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?" }, class: "btn btn-primary ms-3" %>
+                  <%= link_to "Refuse the Booking", refuse_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?"}, class: "btn btn-danger ms-3 mt-3" %>
+              </div>
+              <% else %>
+                <p><%= booking.user.first_name %> requested to book <%= booking.listing.album_name %></p>
+                <p>They requested to book it from <%= booking.date_start %> to <%= booking.date_end %></p>
+                <p>Your payout: <%= booking.total_price %>€</p>
+                <p>Booking Status: <%= booking.accepted ? "Accepted" : "Refused" %></p>
+              </div>
+              <% end %>
+              </div>
+        <% end %>
+      <% end %>
+</div>
+</div>

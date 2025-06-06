@@ -1,41 +1,45 @@
-<div class="container">
-  <h1> My Bookings: </h1>
-  <% if @bookings.any? %>
-    <div class="card-container">
-      <% @bookings.each do |booking| %>
-        <div class="card-product">
-          <%= link_to listing_path(booking.listing), class: "card-product-link" do %>
-            <% if booking.listing.photo.attached? %>
-              <%= cl_image_tag booking.listing.photo.key %>
-            <% end %>
-
-            <div class="card-product-infos">
-              <h2><%= booking.listing.album_name %></h2>
-              <p><strong>Start Date: </strong><%= booking.date_start.present? ? booking.date_start.strftime("%b %d, %Y") : "Not set" %></p>
-              <p><strong>End Date: </strong><%= booking.date_end.present? ? booking.date_end.strftime("%b %d, %Y") : "Not set" %></p>
-              <p><strong>Total Price:</strong> <%= number_to_currency(booking.total_price, unit: "€") %></p>
-
-              <% if booking.accepted == true %>
-                <% booking.status = "accepted" %>
-              <% elsif booking.accepted == false %>
-                <% booking.status = "refused" %>
-              <% else %>
-                <% booking.status = "pending" %>
-              <% end %>
-
-              <p><strong>Status:</strong>
-                <% if booking.status == "accepted" %>
-                  <span class="accepted"><%= booking.status %></span>
-                <% elsif booking.status == "refused" %>
-                  <span class="refused"><%= booking.status %></span>
-                <% else %>
-                  <span class="pending"><%= booking.status %></span>
+<div class="container-fluid full-height">
+  <div class="row justify-content-center">
+    <div class="col-10 ms-5 my-3">
+      <h1> My Bookings: </h1>
+      <% if @bookings.any? %>
+        <div class="card-container">
+          <% @bookings.each do |booking| %>
+            <div class="card-product">
+              <%= link_to listing_path(booking.listing), class: "card-product-link" do %>
+                <% if booking.listing.photo.attached? %>
+                  <%= cl_image_tag booking.listing.photo.key %>
                 <% end %>
-              </p>
+
+                <div class="card-product-infos">
+                  <h2><%= booking.listing.album_name %></h2>
+                  <p><strong>Start Date: </strong><%= booking.date_start.present? ? booking.date_start.strftime("%b %d, %Y") : "Not set" %></p>
+                  <p><strong>End Date: </strong><%= booking.date_end.present? ? booking.date_end.strftime("%b %d, %Y") : "Not set" %></p>
+                  <p><strong>Total Price:</strong> <%= number_to_currency(booking.total_price, unit: "€") %></p>
+
+                  <% if booking.accepted == true %>
+                    <% booking.status = "accepted" %>
+                  <% elsif booking.accepted == false %>
+                    <% booking.status = "refused" %>
+                  <% else %>
+                    <% booking.status = "pending" %>
+                  <% end %>
+
+                  <p><strong>Status:</strong>
+                    <% if booking.status == "accepted" %>
+                      <span class="accepted"><%= booking.status %></span>
+                    <% elsif booking.status == "refused" %>
+                      <span class="refused"><%= booking.status %></span>
+                    <% else %>
+                      <span class="pending"><%= booking.status %></span>
+                    <% end %>
+                  </p>
+                </div>
+              <% end %>
             </div>
           <% end %>
         </div>
       <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

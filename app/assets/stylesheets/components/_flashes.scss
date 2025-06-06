@@ -2,6 +2,7 @@
 .custom-flash {
   background-color: $black;
   color: $green;
+  max-width: 500px;
 
   &.notice {
     border: 1px solid $yellow;
