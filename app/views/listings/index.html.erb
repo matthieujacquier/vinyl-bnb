@@ -27,7 +27,7 @@
             <p><i class="fa-solid fa-podcast"></i>  <%= listing.artist_name %></p>
             <p><i class="fa-solid fa-tag"></i> <%= listing.genre %></p>
             <p><%= listing.price_per_day %> € / per day</p>
-            <%= link_to "See vinyls details", listing_path(listing)%>
+            <%= link_to "See vinyls details", listing_path(listing), class:"button"%>
           </div>
             </div>
           <% end %>
