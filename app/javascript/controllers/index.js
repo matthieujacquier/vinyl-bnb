@@ -2,7 +2,7 @@
 import { application } from "controllers/application"
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
 eagerLoadControllersFrom("controllers", application)
-import DatepickerController from "./datepicker_controller"
-import BookingController from "./booking_controller"
+import DatepickerController from "controllers/datepicker_controller"
+import BookingController from "controllers/booking_controller"
 application.register("datepicker", DatepickerController)
 application.register("booking", BookingController)
