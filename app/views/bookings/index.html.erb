@@ -6,6 +6,7 @@
   <div class="card-container">
     <% @bookings.each do |booking| %>
       <div class="card-product">
+       <%= link_to listing_path(booking.listing) do %>
         <% if booking.listing.photo.attached? %>
           <%= cl_image_tag booking.listing.photo.key %>
         <%end%>
@@ -22,6 +23,7 @@
         <% end %>
         <p><strong>Status: </strong><%= booking.status%></p>
       </div>
+      <% end %>
       </div>
     <%end%>
     </div>
