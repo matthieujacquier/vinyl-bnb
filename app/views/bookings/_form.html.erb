@@ -1,10 +1,31 @@
-<h2>Request to book</h2>
-<% if @listing.bookings.exists?(user: current_user) %>
-  You have requested to book it!
-<% end %>
+<%= simple_form_for [@listing, @booking],
+  url: listing_bookings_path(@listing),
+  html: {
+    data: {
+      controller: "booking",
+      "booking-price-per-day-value": @listing.price_per_day
+    }
+  } do |f| %>
 
-<%= simple_form_for [@listing, @booking], url: listing_bookings_path(@listing) do |f| %>
-  <%= f.input :date_start, as: :string, input_html: { data: { controller: "datepicker", datepicker_target: "input" } } %>
-  <%= f.input :date_end, as: :string, input_html: { data: { controller: "datepicker", datepicker_target: "input" } } %>
-  <%= f.button :submit, "Submit Request" %>
+  <%= f.input :date_start, as: :string, input_html: {
+      data: {
+        controller: "datepicker",
+        booking_target: "dateStart",
+        datepicker_target: "input"
+      }
+    } %>
+
+  <%= f.input :date_end, as: :string, input_html: {
+      data: {
+        controller: "datepicker",
+        booking_target: "dateEnd",
+        datepicker_target: "input"
+      }
+    } %>
+  <div class="total-price-badge">Total price:
+  <span data-booking-target="totalPrice">0€</span>
+</div>
+<div class="submit-button-wrapper">
+  <%= f.button :submit, "Submit Request", class: "btn btn-outline-light" %>
+</div>
 <% end %>
