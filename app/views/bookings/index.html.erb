@@ -12,8 +12,9 @@
 
       <div class="card-product-infos">
         <h2> <%= booking.listing.album_name %></h2>
-        <p> <strong>Start Date: </strong><%= booking.date_start.strftime("%b %d, %Y") %></p>
-        <p><strong>End Date: </strong><%= booking.date_end.strftime("%b %d, %Y") %></p>
+        <p><strong>Start Date: </strong><%= booking.date_start.present? ? booking.date_start.strftime("%b %d, %Y") : "Not set" %></p>
+        <p><strong>End Date: </strong><%= booking.date_end.present? ? booking.date_end.strftime("%b %d, %Y") : "Not set" %></p>
+        <p><strong>Total Price:</strong> <%= number_to_currency(booking.total_price, unit: "€") %></p>
         <% if booking.accepted == true %>
           <% booking.status = "accepted" %>
         <% elsif booking.accepted == false %>
