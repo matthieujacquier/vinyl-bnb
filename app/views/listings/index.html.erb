@@ -23,12 +23,12 @@
               <%= cl_image_tag listing.photo.key %>
               <% end %>
               <div class="card-product-infos">
-                <h2><%= listing.album_name %></h2>
-                <p><%= listing.artist_name %></p>
-                <p><%= listing.genre %></p>
-                <p class="mb-3"><%= listing.price_per_day %></p>
-                <%= link_to "See vinyls details", listing_path(listing), class: "button" %>
-              </div>
+            <h2><%= listing.album_name %></h2>
+            <p><i class="fa-solid fa-podcast"></i>  <%= listing.artist_name %></p>
+            <p><i class="fa-solid fa-tag"></i> <%= listing.genre %></p>
+            <p><%= listing.price_per_day %> € / per day</p>
+            <%= link_to "See vinyls details", listing_path(listing), class:"button"%>
+          </div>
             </div>
           <% end %>
         <% end %>
