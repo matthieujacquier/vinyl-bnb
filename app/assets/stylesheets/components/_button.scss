@@ -1,0 +1,26 @@
+
+.search-button {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 1rem;
+  border-radius: $border-radius-xxl;
+}
+
+.button {
+  color: $gray;
+  background-color: $green;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  margin-left: 1rem;
+  border-radius: $border-radius-xxl;
+
+  &:hover {
+    background-color: rgb(64,221,120);
+  }
+}

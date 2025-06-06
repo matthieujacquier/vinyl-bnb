@@ -1,41 +1,46 @@
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: listings_path, method: :get, class: "search-form d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search by album, artist or genre"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary search-button" %>
-    <% end %>
-  </div>
-</div>
-
-<div>
-  <h1>List of all vinyls</h1>
-  <div class="card-container">
-    <% @listings.each do |listing| %>
-      <% if listing.active? %>
-        <div class="card-product">
-          <% if listing.photo.attached? %>
-          <%= cl_image_tag listing.photo.key %>
-          <% end %>
-          <div class="card-product-infos">
-            <h2><%= listing.album_name %></h2>
-            <p><%= listing.artist_name %></p>
-            <p><%= listing.genre %></p>
-            <p><%= listing.price_per_day %></p>
-            <%= link_to "See vinyls details", listing_path(listing) %>
-          </div>
-        </div>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-sm-4 my-3">
+      <%= form_with url: listings_path, method: :get, class: "search-form d-flex my-5" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Search by album, artist or genre"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary search-button" %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 
-  <div style="width: 40%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="row">
+    <div class="col-8 justify-content-center  ">
+      <h1 class="ms-4">List of all vinyls</h1>
+      <div class="card-container">
+        <% @listings.each do |listing| %>
+          <% if listing.active? %>
+            <div class="card-product">
+              <% if listing.photo.attached? %>
+              <%= cl_image_tag listing.photo.key %>
+              <% end %>
+              <div class="card-product-infos">
+                <h2><%= listing.album_name %></h2>
+                <p><%= listing.artist_name %></p>
+                <p><%= listing.genre %></p>
+                <p class="mb-3"><%= listing.price_per_day %></p>
+                <%= link_to "See vinyls details", listing_path(listing), class: "button" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4 pe-4 rounded">
+      <h1 class="mb-5">Map view</h1>
+      <div class="map sticky-top"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
   </div>
-
 </div>

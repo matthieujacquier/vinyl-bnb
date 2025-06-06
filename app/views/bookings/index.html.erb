@@ -1,8 +1,6 @@
-<div>
+<div class="container">
   <h1> My Bookings: </h1>
-</div>
-
-  <% if @bookings.length > 0 %>
+  <% if @bookings.any? %>
   <div class="card-container">
     <% @bookings.each do |booking| %>
       <div class="card-product">
@@ -16,13 +14,21 @@
         <p><strong>End Date: </strong><%= booking.date_end.present? ? booking.date_end.strftime("%b %d, %Y") : "Not set" %></p>
         <p><strong>Total Price:</strong> <%= number_to_currency(booking.total_price, unit: "€") %></p>
         <% if booking.accepted == true %>
-          <% booking.status = "accepted" %>
+          <% booking.update(status: "accepted")%>
         <% elsif booking.accepted == false %>
-          <% booking.status = "refused" %>
+          <% booking.update(status: "refused")%>
         <% end %>
-        <p><strong>Status: </strong><%= booking.status%></p>
+        <p><strong>Status:</strong>
+        <% if booking.status == "accepted" %>
+          <span class="accepted"><%= booking.status%></p></span>
+        <% elsif booking.status == "refused" %>
+          <span class="refused"><%= booking.status%></p></span>
+        <% else %>
+          <span class="pending"><%= booking.status%></p></span>
+        <% end %>
       </div>
       </div>
     <%end%>
-    </div>
+  </div>
   <% end %>
+</div>
