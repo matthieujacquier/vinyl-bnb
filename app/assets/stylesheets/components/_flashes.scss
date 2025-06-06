@@ -1,0 +1,17 @@
+// Flash messages
+.custom-flash {
+  background-color: $black;
+  color: $green;
+
+  &.notice {
+    border: 1px solid $yellow;
+  }
+
+  &.alert {
+    border: 1px solid $yellow;
+  }
+
+  .btn-close {
+    filter: invert(1);
+  }
+}
