@@ -5,8 +5,7 @@
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
-              placeholder: "Search by album, artist or genre"
-          %>
+              placeholder: "Search by album, artist or genre" %>
         <%= submit_tag "Search", name: "", class: "btn btn-primary search-button" %>
       <% end %>
     </div>
@@ -36,12 +35,13 @@
         <% end %>
       </div>
     </div>
+
     <div class="col-4 pe-4 rounded">
       <h1 class="mb-5">Map view</h1>
       <div class="map sticky-top"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
   </div>
